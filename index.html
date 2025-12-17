@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-POP HOUSE 크레스트 | 글로벌 K-POP 팬덤의 새로운 성지</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff4d8d;
+            --secondary: #9b5de5;
+            --accent: #00bbf9;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --gradient: linear-gradient(135deg, #ff4d8d, #9b5de5);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #0f0f1a;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 헤더 스타일 */
+        header {
+            background-color: rgba(26, 26, 46, 0.9);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            color: var(--primary);
+            font-size: 28px;
+        }
+        
+        .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 24px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .cta-button {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 77, 141, 0.3);
+        }
+        
+        /* 히어로 섹션 */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(rgba(15, 15, 26, 0.8), rgba(15, 15, 26, 0.9)), 
+                        url('https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding-top: 100px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero h1 span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            max-width: 600px;
+        }
+        
+        .eoz-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 50px;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        
+        .eoz-badge i {
+            color: var(--accent);
+            margin-right: 8px;
+        }
+        
+        /* 섹션 공통 스타일 */
+        section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: #aaa;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* 컨셉 섹션 */
+        .concept {
+            background-color: #151525;
+        }
+        
+        .concept-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .concept-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: transform 0.3s, background 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .concept-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .concept-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .concept-card h3 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .concept-card p {
+            color: #ccc;
+        }
+        
+        /* 공간 소개 섹션 */
+        .spaces {
+            background-color: #0f0f1a;
+        }
+        
+        .space-card {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 80px;
+            flex-wrap: wrap;
+        }
+        
+        .space-card:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .space-image {
+            flex: 1;
+            min-width: 300px;
+            height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .space-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .space-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .space-content {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .space-content h3 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .space-content p {
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+        
+        .space-features {
+            list-style: none;
+            margin-top: 20px;
+        }
+        
+        .space-features li {
+            color: #ccc;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .space-features i {
+            color: var(--primary);
+            margin-right: 10px;
+        }
+        
+        /* 프로그램 섹션 */
+        .programs {
+            background-color: #151525;
+        }
+        
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .program-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .program-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .program-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .program-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .program-content {
+            padding: 25px;
+        }
+        
+        .program-content h4 {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        
+        .program-content p {
+            color: #ccc;
+            font-size: 0.95rem;
+        }
+        
+        .program-tag {
+            display: inline-block;
+            background: var(--gradient);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+        
+        /* 푸터 */
+        footer {
+            background-color: #0a0a14;
+            padding: 80px 0 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column h4 {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+        
+        .footer-column p, .footer-column a {
+            color: #aaa;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: var(--primary);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            font-size: 18px;
+            transition: background 0.3s, transform 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background: var(--gradient);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        /* 반응형 디자인 */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                display: none;
+            }
+            
+            .space-card, .space-card:nth-child(even) {
+                flex-direction: column;
+            }
+            
+            .space-image {
+                width: 100%;
+            }
+        }
+        
+        /* 애니메이션 */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .floating {
+            animation: float 5s ease-in-out infinite;
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <!-- 헤더 -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <div class="logo-text">K-POP HOUSE 크레스트</div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">홈</a></li>
+                    <li><a href="#concept">EOZ 컨셉</a></li>
+                    <li><a href="#spaces">공간 소개</a></li>
+                    <li><a href="#programs">프로그램</a></li>
+                    <li><a href="#contact">문의하기</a></li>
+                </ul>
+            </nav>
+            <button class="cta-button pulse">예약 문의</button>
+        </div>
+    </header>
+
+    <!-- 히어로 섹션 -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <div class="eoz-badge">
+                <i class="fas fa-globe"></i> English Only Zone (EOZ)
+            </div>
+            <h1>글로벌 <span>K-POP 팬덤</span>의 새로운 성지</h1>
+            <p>언어 장벽 없이 전 세계 K-POP 팬들이 모여 깊이 있는 문화 교류를 할 수 있는 공간. K-POP HOUSE는 팬과 아티스트가 함께 만들어가는 생동감 넘치는 문화 허브입니다.</p>
+            <button class="cta-button floating">EOZ 체험하기</button>
+        </div>
+    </section>
+
+    <!-- EOZ 컨셉 섹션 -->
+    <section id="concept" class="concept">
+        <div class="container">
+            <div class="section-title">
+                <h2>EOZ 중심 차별화 전략</h2>
+                <p>English Only Zone을 통해 전 세계 다양한 국적의 K-POP 팬들이 언어 장벽 없이 깊이 있는 문화 교류를 할 수 있는 환경을 제공합니다.</p>
+            </div>
+            <div class="concept-grid">
+                <div class="concept-card">
+                    <div class="concept-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>글로벌 커뮤니티</h3>
+                    <p>다양한 국적의 팬들이 K-POP을 공통 관심사로 하여 깊이 있는 교류를 가능하게 합니다.</p>
+                </div>
+                <div class="concept-card">
+                    <div class="concept-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>문화 교류 허브</h3>
+                    <p>팬들 간에 문화적 이해를 깊이 있게 확장시키고 네트워크를 형성할 수 있습니다.</p>
+                </div>
+                <div class="concept-card">
+                    <div class="concept-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>팬 만족도 향상</h3>
+                    <p>언어 장벽을 없애고 팬들이 원활하게 소통하고 한국 문화에 대해 더 깊이 이해할 기회를 제공합니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 공간 소개 섹션 -->
+    <section id="spaces" class="spaces">
+        <div class="container">
+            <div class="section-title">
+                <h2>체험형 공용 공간</h2>
+                <p>K-POP HOUSE는 팬들이 K-POP을 더 깊이 있게 느끼고 즐길 수 있도록 설계된 다양한 체험 공간을 제공합니다.</p>
+            </div>
+            
+            <div class="space-card">
+                <div class="space-image">
+                    <img src="https://images.unsplash.com/photo-1518609878373-06d740f60d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="댄스 스튜디오">
+                </div>
+                <div class="space-content">
+                    <h3>댄스 스튜디오 & 레코딩 부스</h3>
+                    <p>대형 스크린으로 K-POP 아이돌의 안무 영상을 시청하고, 전문적인 거울 공간에서 직접 따라 해보세요. 정기적인 K-POP 댄스 클래스와 방음 시설이 완비된 레코딩 부스에서 좋아하는 노래를 직접 녹음해보세요.</p>
+                    <ul class="space-features">
+                        <li><i class="fas fa-check"></i> 대형 스크린 안무 시청 공간</li>
+                        <li><i class="fas fa-check"></i> 전문 거울 댄스 연습실</li>
+                        <li><i class="fas fa-check"></i> 방음 레코딩 부스</li>
+                        <li><i class="fas fa-check"></i> 전문 장비 구비</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="space-card">
+                <div class="space-image">
+                    <img src="https://images.unsplash.com/photo-1541532713592-79a0317b6b77?ixlib=rb-4.0.3&auto=format&fit=crop&w=2080&q=80" alt="DIY 굿즈 존">
+                </div>
+                <div class="space-content">
+                    <h3>DIY 굿즈 존 & 포토 스튜디오</h3>
+                    <p>나만의 포토카드를 꾸미고, 앨범 커버를 디자인하며, 공식 응원봉을 커스터마이징할 수 있는 창의적 공간입니다. 또한 아이돌 앨범 재킷 콘셉트의 다양한 배경과 소품을 갖춘 셀프 사진 촬영 공간도 마련되어 있습니다.</p>
+                    <ul class="space-features">
+                        <li><i class="fas fa-check"></i> 포토카드 꾸미기 공간</li>
+                        <li><i class="fas fa-check"></i> 앨범 커버 디자인 존</li>
+                        <li><i class="fas fa-check"></i> 응원봉 커스터마이징</li>
+                        <li><i class="fas fa-check"></i> 앨범 콘셉트 포토 스튜디오</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="space-card">
+                <div class="space-image">
+                    <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="로비 및 공용 라운지">
+                </div>
+                <div class="space-content">
+                    <h3>로비 및 공용 라운지</h3>
+                    <p>K-POP 아이돌의 앨범 콘셉트를 담은 웰컴 드링크 바, 아티스트 아카이브 월, 팬 메시지 보드 등이 마련된 개방적이고 현대적인 공간입니다. 다양한 국적의 팬들이 자연스럽게 소통하고 교류할 수 있는 장소입니다.</p>
+                    <ul class="space-features">
+                        <li><i class="fas fa-check"></i> 웰컴 드링크 바</li>
+                        <li><i class="fas fa-check"></i> 아티스트 아카이브 월</li>
+                        <li><i class="fas fa-check"></i> 팬 메시지 보드</li>
+                        <li><i class="fas fa-check"></i> 개방형 라운지</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 프로그램 섹션 -->
+    <section id="programs" class="programs">
+        <div class="container">
+            <div class="section-title">
+                <h2>정규 프로그램 & 특별 이벤트</h2>
+                <p>K-POP HOUSE에서는 다양한 정규 프로그램과 특별 이벤트를 통해 팬들의 K-POP 문화 체험을 풍부하게 합니다.</p>
+            </div>
+            
+            <div class="program-grid">
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="K-POP 댄스 클래스">
+                    </div>
+                    <div class="program-content">
+                        <h4>K-POP 댄스 클래스</h4>
+                        <p>초급부터 중급까지 단계별 K-POP 안무 수업. 좋아하는 아이돌의 안무를 배우고 개인별 역량에 맞춤 커스터마이징 댄스 레슨을 제공합니다.</p>
+                        <div class="program-tag">정규 프로그램</div>
+                    </div>
+                </div>
+                
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="한국어 회화 클래스">
+                    </div>
+                    <div class="program-content">
+                        <h4>한국어 회화 클래스</h4>
+                        <p>K-POP 가사와 팬덤 문화를 활용한 한국어 수업. K-POP 관련 토론과 발표를 통한 실용적 한국어 능력 향상을 목표로 합니다.</p>
+                        <div class="program-tag">정규 프로그램</div>
+                    </div>
+                </div>
+                
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="K-POP 아이돌 생일 파티">
+                    </div>
+                    <div class="program-content">
+                        <h4>K-POP 아이돌 생일 파티</h4>
+                        <p>매월 생일을 맞은 아이돌 그룹을 위한 특별 생일 파티. 팬들이 함께 모여 축하하며 특별한 메시지와 선물을 준비하는 시간입니다.</p>
+                        <div class="program-tag">특별 이벤트</div>
+                    </div>
+                </div>
+                
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="문화 체험 프로그램">
+                    </div>
+                    <div class="program-content">
+                        <h4>문화 체험 프로그램</h4>
+                        <p>한복 체험, 전통 시장 방문, 강남 아이돌 로드 탐방 등 한국 문화를 직접 체험할 수 있는 다양한 프로그램을 운영합니다.</p>
+                        <div class="program-tag">문화 체험</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>K-POP HOUSE 크레스트</h4>
+                    <p>글로벌 K-POP 팬덤의 새로운 성지, 한국 문화 교류의 핵심 허브입니다.</p>
+                    <p>언어 장벽 없는 EOZ 환경에서 전 세계 팬들과 소통하고 한국 문화를 깊이 있게 경험하세요.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>빠른 링크</h4>
+                    <a href="#home">홈</a>
+                    <a href="#concept">EOZ 컨셉</a>
+                    <a href="#spaces">공간 소개</a>
+                    <a href="#programs">프로그램</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>운영 정보</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 서울시 강남구 K-POP로 123</p>
+                    <p><i class="fas fa-phone"></i> 02-1234-5678</p>
+                    <p><i class="fas fa-envelope"></i> info@kpophousecrest.com</p>
+                    <p><i class="fas fa-clock"></i> 연중무휴 24시간</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>뉴스레터 구독</h4>
+                    <p>K-POP HOUSE의 최신 프로그램과 이벤트 소식을 받아보세요.</p>
+                    <div style="margin-top: 15px;">
+                        <input type="email" placeholder="이메일 주소" style="width: 100%; padding: 12px; border-radius: 5px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); color: white; margin-bottom: 10px;">
+                        <button class="cta-button" style="width: 100%;">구독하기</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 K-POP HOUSE 크레스트. All rights reserved. | EOZ 중심 차별화 전략</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 부드러운 스크롤
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // 예약 문의 버튼 클릭 이벤트
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('click', function() {
+                alert('K-POP HOUSE 크레스트 예약 문의는 02-1234-5678로 전화주시거나, info@kpophousecrest.com으로 문의해주세요.');
+            });
+        });
+        
+        // 스크롤 시 헤더 스타일 변경
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.backgroundColor = 'rgba(15, 15, 26, 0.95)';
+                header.style.padding = '15px 0';
+            } else {
+                header.style.backgroundColor = 'rgba(26, 26, 46, 0.9)';
+                header.style.padding = '20px 0';
+            }
+        });
+    </script>
+</body>
+</html>
